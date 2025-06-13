@@ -41,13 +41,6 @@ def get_url(url: str):
         return None
     return r.json()
 
-def load_lottiefile(filepath: str):
-    try:
-        with open(filepath, "r") as f:
-            return json.load(f)
-    except FileNotFoundError:
-        return None
-
 # ---- Navigation ----
 selected = option_menu(
     menu_title=None,
@@ -103,14 +96,14 @@ Machine Learning (ML) is a core subfield of Artificial Intelligence (AI) that em
 Unlike traditional programming, where explicit instructions are given for every task, ML uses algorithms to analyze large datasets, improving performance over time based on experience. This adaptive capability allows systems to predict outcomes, detect anomalies, and automate complex decisions, making ML a powerful tool across industries like healthcare, finance, and more."""
             )
         with right_column:
-            # Load your local JSON file (adjust the path if needed)
-            lottie_ML = load_lottiefile("WDfItVJUqT.json")  # or just "WDfItVJUqT.json" if same folder
-        
+            # Load your local JSON file (use the correct path!)
+            lottie_ML = load_lottiefile("WDfItVJUqT.json")
+
             # Display the animation
             if lottie_ML:
                 st_lottie(lottie_ML, speed=1, height=400, key="ML")
             else:
-                st.error("❌ Failed to load Lottie animation. Make sure the path is correct.")
+                st.error("Failed to load Lottie animation.")
     # ---- 3 Home section ----
     with st.container():
         st.write("---")
